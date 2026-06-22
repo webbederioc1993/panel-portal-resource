@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏体育 · 再次相遇的温暖角落</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #fdefda 0%, #fce4cc 40%, #fadbc4 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .page-wrapper {
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* hero 卡片 */
+    .hero-card {
+      background: #ffffff;
+      border-radius: 40px;
+      padding: 3.5rem 3rem;
+      box-shadow: 0 24px 48px -12px rgba(160, 100, 60, 0.18);
+      margin-bottom: 2.8rem;
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+
+    .hero-card h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #4f3020;
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+
+    .hero-card .sub {
+      font-size: 1.15rem;
+      color: #7a5b48;
+      background: #f9eee6;
+      display: inline-block;
+      padding: 0.4rem 1.8rem;
+      border-radius: 40px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-card p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #4a3a30;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* 卡片网络 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2.6rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 2.4rem 2rem 2.2rem;
+      box-shadow: 0 12px 28px -6px rgba(130, 80, 50, 0.12);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 36px -8px rgba(140, 85, 45, 0.16);
+    }
+
+    .card .emoji-icon {
+      font-size: 2.5rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+      background: #f7ede6;
+      width: 64px;
+      height: 64px;
+      line-height: 64px;
+      text-align: center;
+      border-radius: 20px;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      font-weight: 570;
+      color: #3d2b1f;
+      margin-bottom: 0.9rem;
+    }
+
+    .card p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #4f3d31;
+    }
+
+    .card p + p {
+      margin-top: 0.8rem;
+    }
+
+    .card .mini-tag {
+      display: inline-block;
+      background: #f5e7dd;
+      color: #6b4c39;
+      font-size: 0.85rem;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      margin-top: 0.2rem;
+    }
+
+    /* 链接段落 – 自然融入 */
+    .link-note {
+      background: #ffffffd9;
+      backdrop-filter: blur(2px);
+      border-radius: 40px;
+      padding: 2.2rem 2.8rem;
+      margin: 2rem 0 2.4rem;
+      box-shadow: 0 6px 20px rgba(150, 90, 50, 0.08);
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: #3f332b;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+
+    .link-note a {
+      color: #914f2e;
+      font-weight: 550;
+      text-decoration: none;
+      background: #f3e2d6;
+      padding: 0.2rem 0.9rem 0.25rem;
+      border-radius: 30px;
+      transition: background 0.2s, color 0.15s;
+      white-space: nowrap;
+      margin: 0 0.1rem;
+    }
+
+    .link-note a:hover {
+      background: #dbb9a8;
+      color: #2e1d14;
+    }
+
+    /* FAQ 摘要风格卡片 */
+    .faq-brief {
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 2.2rem 2.6rem 2.6rem;
+      margin-bottom: 2.4rem;
+      box-shadow: 0 8px 24px -6px rgba(110, 70, 40, 0.08);
+    }
+
+    .faq-brief h2 {
+      font-size: 1.5rem;
+      font-weight: 550;
+      color: #3d2a1b;
+      border-left: 6px solid #c79474;
+      padding-left: 1.2rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .faq-item {
+      display: flex;
+      gap: 0.75rem 1.2rem;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .faq-q {
+      font-weight: 550;
+      color: #4f3422;
+      min-width: 6.6rem;
+    }
+
+    .faq-a {
+      color: #4d3a2d;
+      flex: 1;
+    }
+
+    .faq-a a {
+      color: #914f2e;
+      text-decoration: none;
+      border-bottom: 1px dashed #c79d84;
+      transition: border-color 0.2s;
+    }
+
+    .faq-a a:hover {
+      border-bottom-style: solid;
+      border-color: #7a4228;
+    }
+
+    /* 底部柔和 */
+    .gentle-footer {
+      text-align: center;
+      color: #7e695b;
+      font-size: 0.9rem;
+      margin-top: 1.6rem;
+      padding: 0.8rem 0;
+      border-top: 1px solid #e6d3c6;
+      letter-spacing: 0.02em;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body {
+        padding: 2rem 1rem 3rem;
+      }
+      .hero-card {
+        padding: 2.8rem 1.6rem;
+      }
+      .hero-card h1 {
+        font-size: 2rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .link-note {
+        padding: 1.6rem 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .faq-brief {
+        padding: 1.6rem 1.2rem;
+      }
+      .faq-item {
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .faq-q {
+        min-width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- hero / 主视觉卡片 -->
+  <div class="hero-card">
+    <div class="sub">🍃 再次相遇 · 收藏此刻</div>
+    <h1>爱游戏体育 · 持续关注的乐趣</h1>
+    <p>
+      有些地方，值得你一次次回来。无论你是刚刚收藏，还是偶然重逢，<br>
+      这里始终为你保留一份从容与自然。
+    </p>
+  </div>
+
+  <!-- 用途卡片 + 适合人群 混合网格 -->
+  <div class="card-grid">
+    <!-- 卡片 1 用途 -->
+    <div class="card">
+      <div class="emoji-icon">🏓</div>
+      <h3>轻量信息 · 随心翻阅</h3>
+      <p>
+        赛事动态、运动见闻、社区讨论……没有繁杂推送，只有你关心的内容。
+        适合每天花几分钟浏览，也适合周末慢慢翻阅。
+      </p>
+      <span class="mini-tag">浏览 · 资讯</span>
+    </div>
+
+    <!-- 卡片 2 适合人群 -->
+    <div class="card">
+      <div class="emoji-icon">🧘</div>
+      <h3>谁在这里停留</h3>
+      <p>
+        喜欢体育但不想被算法裹挟的人；想安静关注赛程、规则与故事的爱好者；
+        以及那些愿意把某个网站放进收藏夹、偶尔回来看看的从容用户。
+      </p>
+      <span class="mini-tag">爱好者 · 轻度参与</span>
+    </div>
+
+    <!-- 卡片 3 再次访问的理由 -->
+    <div class="card">
+      <div class="emoji-icon">🔖</div>
+      <h3>收藏的理由</h3>
+      <p>
+        没有喧闹弹窗，页面干净直接。无论是桌面端还是手机，打开书签就能回到熟悉的界面。
+        持续关注，不需要每次都重新搜索。
+      </p>
+      <span class="mini-tag">持续 · 稳定</span>
+    </div>
+  </div>
+
+  <!-- 自然链接段落 —— 嵌在句子里 -->
+  <div class="link-note">
+    <span>如果你还没有收藏，不妨把</span>
+    <a href="https://panel-portal-ayx.com">爱游戏体育</a>
+    <span>放进浏览器的书签栏。下次想起时，轻轻一点就能回到这个安静角落。</span>
+    <span style="opacity:0.75; margin-left: 0.2rem;">📌</span>
+  </div>
+
+  <!-- FAQ 摘要卡片 (温和 FAQ) -->
+  <div class="faq-brief">
+    <h2>❓ 一些你可能想问的</h2>
+    <div class="faq-item">
+      <span class="faq-q">这里主要关注什么？</span>
+      <span class="faq-a">围绕体育资讯、赛事观察与运动文化，保持轻量和真实。更多日常内容可以通过 <a href="https://panel-portal-ayx.com">爱游戏体育</a> 了解。</span>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">需要注册或登录吗？</span>
+      <span class="faq-a">大多数内容可直接浏览，无需繁琐注册。部分互动功能可选，一切以简洁为主。</span>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">我错过了之前的更新怎么办？</span>
+      <span class="faq-a">不必担心。页面结构稳定，重要信息常在首页保留。你随时可以回来，从上次离开的地方继续。</span>
+    </div>
+  </div>
+
+  <!-- 一点提示，呼应再次访问 -->
+  <div style="background: #fff; border-radius: 26px; padding: 1.6rem 2rem; box-shadow: 0 2px 8px rgba(130,70,30,0.04);">
+    <p style="font-size: 1.05rem; color: #4d382b; line-height: 1.6;">
+      🌱 持续关注不一定是每天刷新，而是知道有一个地方，你想去的时候它还在。
+      无论是新朋友还是老访客，都欢迎你再次打开 <a href="https://panel-portal-ayx.com" style="color:#7a4228; text-decoration: none; border-bottom: 1px dotted #b48d78;">爱游戏体育</a>。
+    </p>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="gentle-footer">
+    · 慢下来，保持关注 · 页面随季节微调 ·
+  </div>
+
+</div>
+</body>
+</html>
